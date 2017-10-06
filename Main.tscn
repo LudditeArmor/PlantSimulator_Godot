@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://baseplant.gd" type="Script" id=2]
+
+[node name="RootNode" type="Node"]
+
+[node name="WorldContainer" type="Container" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="Map" type="Node2D" parent="WorldContainer"]
+
+script/script = ExtResource( 1 )
+globalScale = 1
+
+[node name="MainCamara" type="Camera2D" parent="WorldContainer/Map"]
+
+transform/pos = Vector2( 512, 300 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 6.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="BasePlant" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+position = Vector2( 0, 0 )
+growth_rate = 0.1
+max_growth_rate = 0.4
+max_length = 100
+can_Branch = 1
+energy = 100
+max_stem_width = 5.5
+max_branch_size = 30
+branch_spacer = 20
+branch_offset = Vector2( 0.2, 0.8 )
+flower_color = Color( 1, 1, 1, 1 )
+stem_color = Color( 0.4, 0.2, 0, 1 )
+family = "PLANT"
+isMonocarpic = 0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+visibility/visible = false
+visibility/opacity = 0.8
+visibility/self_opacity = 0.8
+transform/pos = Vector2( 512.128, 251.85 )
+transform/scale = Vector2( 15.9616, 7.89404 )
+config/amount = 64
+config/lifetime = 2.3
+config/time_scale = 0.6
+config/emitting = false
+config/process_mode = 1
+config/offset = Vector2( 0, -35 )
+params/direction = 0.0
+params/spread = 67.72
+params/linear_velocity = 5.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 1.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.1
+params/final_size = 0.1
+params/hue_variation = 0.1
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0.642242, 0.832387, 0.898438, 1 )
+
+
