@@ -64,7 +64,7 @@ func _ready():
 	randomize()
 	var mutationFactor = rand_range(0.9, 1.1)
 	
-	#geneticCode (array) of baseplant:
+	#geneticCode (dictionary) of baseplant:
 	#[0] = growth rate (float)
 	#[1] = max growth rate (float)
 	#[2] = max_length (int)
@@ -390,12 +390,12 @@ func _input(event):
 func add_plant(tmp_pos, tmp_geneticCode, tmp_previousGenerationNumbr = 0):
 	add_child(BasePlant.new(tmp_pos, tmp_geneticCode, tmp_previousGenerationNumbr))
 
-func add_light(x, y, size, intensity):
-	lights.append(LightSource.new(x, y, size, intensity))
-	var light = lights[lights.size()-1]
-	light.lightID = lights.size()-1
-	light.set_name("LightSource_" + str(light.lightID))
-	add_child(light)
+#func add_light(x, y, size, intensity):
+#	lights.append(LightSource.new(x, y, size, intensity))
+#	var light = lights[lights.size()-1]
+#	light.lightID = lights.size()-1
+#	light.set_name("LightSource_" + str(light.lightID))
+#	add_child(light)
 	
 func remove_light(id):
 	lights[id].queue_free()
